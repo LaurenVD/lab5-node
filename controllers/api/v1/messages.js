@@ -1,6 +1,23 @@
+//require model
+const Message = require('./../../../models/message');
+
 const getAll = (req, res) => {
-    res.send("Hello World")
-  }
+    res.json({
+        "status": "success",
+        "message": "GETTING messages",
+        "data": {
+            "messages": [{
+                "user": "John",
+                "message": "Hello"
+            },
+            {
+                "user": "Jane",
+                "message": "Hi"
+            }
+            ]
+        }
+    })
+}
 
 const getId = (req, res) => {
     res.send("Hello World")
