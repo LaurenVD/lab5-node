@@ -58,18 +58,22 @@ const create = (req, res ) => {
 }
 
 const update = (req, res) => {
-    res.json({
-        "status": "success",
-        "message": "UPDATING message with id 1",
-        "data": {
-            "messages": [{
-                "user": "John",
-                "message": "Correcting my message"
-            }
+    // update message
+    const id = req.params.id;
+    let result = {
+        status: "success",
+        message: `UPDATING message with id ${id}`,
+        data: {
+            messages: [
+                {
+                    "user" : req.body.user,
+                    "message" : req.body.message
+                }
             ]
         }
-    })
-}
+    };
+    res.json(result);
+};
 
 const remove = (req, res) => {
     res.json({
