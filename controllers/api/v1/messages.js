@@ -6,13 +6,6 @@ const mongoose = require('mongoose');
 
 const getAll = (req, res) => {
     let messages = Message.find({}, (err, messages) => {
-        if (err) {
-            let result = {
-                status: "error",
-                message: "Error getting messages",
-         };
-         res.json(result);
-        } else {
             let result = {
                 status: "success",
                 data: {
@@ -20,9 +13,8 @@ const getAll = (req, res) => {
                 }
             }
             res.json(result);
-        }
-    })
-}
+        });
+    };
 
 const getId = (req, res) => {
     const id = req.params.id;
@@ -76,17 +68,21 @@ const update = (req, res) => {
 };
 
 const remove = (req, res) => {
-    res.json({
-        "status": "success",
-        "message": "DELETING message with id 1",
-        "data": {
-            "messages": [{
-                "message": "Message deleted"
-            }
+    // remove message
+    const id = req.params.id;
+    let result = {
+        status: "success",
+        message: `DELETING message with id ${id}`,
+        data: {
+            messages: [
+                {
+                    "message" : "Message is deleted"
+                }
             ]
         }
-    })
-}
+    };
+    res.json(result);
+};
 
 module.exports.getAll = getAll
 module.exports.getId = getId
