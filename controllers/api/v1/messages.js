@@ -62,8 +62,17 @@ const update = (req, res) => {
 }
 
 const remove = (req, res) => {
-    res.send("Hello World")
-    }
+    res.json({
+        "status": "success",
+        "message": "DELETING message with id 1",
+        "data": {
+            "messages": [{
+                "message": "Message deleted"
+            }
+            ]
+        }
+    })
+}
 
 module.exports.getAll = getAll
 module.exports.getId = getId

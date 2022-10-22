@@ -5,7 +5,7 @@ const Schema = mongoose.Schema;
 
 //define message schema
 const messageSchema = new Schema({
-    user: { type: String, required: true },
+    user: { type: String, required: false },
     message: { type: String, required: true },
 });
 
