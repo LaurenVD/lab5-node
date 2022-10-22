@@ -11,6 +11,9 @@ app.get('/', (req, res) => {
   res.send(["appel", "peer", "banaan"])
 })
 
+//json
+app.use(express.json());
+
 app.use('/api/v1/messages', apiV1Messages)
 
 app.listen(port, () => {

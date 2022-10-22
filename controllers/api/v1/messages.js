@@ -43,8 +43,8 @@ const getId = (req, res) => {
 
 const create = (req, res ) => {
     let message = new Message();
-    message.user = "John";
-    message.message = "Hello";
+    message.user = req.body.user;
+    message.message = req.body.message;
     message.save((err) => {
         if (!err) {
             res.json({
