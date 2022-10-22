@@ -15,7 +15,7 @@ const getAll = (req, res) => {
                 }
             };
             res.json(result);
-        };
+        } else {
             let result = {
                 status: "success",
                 data: {
@@ -23,6 +23,7 @@ const getAll = (req, res) => {
                 }
             }
             res.json(result);
+        }
         });
     };
 
