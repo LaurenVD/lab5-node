@@ -6,6 +6,16 @@ const mongoose = require('mongoose');
 
 const getAll = (req, res) => {
     let messages = Message.find({}, (err, messages) => {
+        if(req.query.user) {
+            const result = {
+                status: "success",
+                data: {
+                    "user": req.query.user,
+                    "message": `GETTING message with username ${req.query.user}`
+                }
+            };
+            res.json(result);
+        };
             let result = {
                 status: "success",
                 data: {
