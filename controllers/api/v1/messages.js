@@ -5,19 +5,21 @@ const mongoose = require('mongoose');
 
 
 const getAll = (req, res) => {
-    res.json({
-        "status": "success",
-        "message": "GETTING messages",
-        "data": {
-            "messages": [{
-                "user": "John",
-                "message": "Hello"
-            },
-            {
-                "user": "Jane",
-                "message": "Hi"
+    let messages = Message.find({}, (err, messages) => {
+        if (err) {
+            let result = {
+                status: "error",
+                message: "Error getting messages",
+         };
+         res.json(result);
+        } else {
+            let result = {
+                status: "success",
+                data: {
+                    messages: messages,
+                }
             }
-            ]
+            res.json(result);
         }
     })
 }
@@ -51,8 +53,6 @@ const create = (req, res ) => {
         }
     })
 }
-
-
 
 const update = (req, res) => {
     res.json({
