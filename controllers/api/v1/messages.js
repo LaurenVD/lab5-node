@@ -20,8 +20,18 @@ const getAll = (req, res) => {
 }
 
 const getId = (req, res) => {
-    res.send("Hello World")
-    }
+    res.json({
+        "status": "success",
+        "message": "GETTING message with id 1",
+        "data": {
+            "messages": [{
+                "user": "John",
+                "message": "Hello"
+            }
+            ]
+        }
+    })
+}
 
 const create = (req, res) => {
     res.send("Hello World")
