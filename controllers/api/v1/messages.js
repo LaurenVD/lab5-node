@@ -48,8 +48,18 @@ const create = (req, res) => {
 }
 
 const update = (req, res) => {
-    res.send("Hello World")
-    }
+    res.json({
+        "status": "success",
+        "message": "UPDATING message with id 1",
+        "data": {
+            "messages": [{
+                "user": "John",
+                "message": "Correcting my message"
+            }
+            ]
+        }
+    })
+}
 
 const remove = (req, res) => {
     res.send("Hello World")
