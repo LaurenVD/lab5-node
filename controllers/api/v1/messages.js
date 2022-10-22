@@ -1,5 +1,8 @@
 //require model
 const Message = require('./../../../models/message');
+//require mongoose
+const mongoose = require('mongoose');
+
 
 const getAll = (req, res) => {
     res.json({
@@ -33,19 +36,23 @@ const getId = (req, res) => {
     })
 }
 
-const create = (req, res) => {
-    res.json({
-        "status": "success",
-        "status": "POSTING a new message for user Pikachu",
-        "data": {
-            "messages": [{
-                "user": "Pikachu",
-                "message": "Hello"
-            }
-            ]
+const create = (req, res ) => {
+    let message = new Message();
+    message.user = "John";
+    message.message = "Hello";
+    message.save((err) => {
+        if (!err) {
+            res.json({
+                "status": "success",
+                "data": {
+                    "message": message
+                }
+            })
         }
     })
 }
+
+
 
 const update = (req, res) => {
     res.json({

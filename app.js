@@ -4,6 +4,9 @@ const port = 3000
 const logger = require('./middleware/logger')
 const apiV1Messages = require('./routers/api/v1/messages')
 
+const mongoose = require('mongoose');
+mongoose.connect('mongodb://localhost:27017/lab5');
+
 app.get('/', (req, res) => {
   res.send(["appel", "peer", "banaan"])
 })
