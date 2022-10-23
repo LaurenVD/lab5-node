@@ -53,9 +53,11 @@ const create = (req, res) => {
 };
 
 const update = (req, res) => {
+    // get id from url
+    const id = req.params.id;
     res.json({
         "status": "success",
-        "message": "UPDATING message with id 1",
+        "message": "UPDATING message with id " + id,
         "data": {
             "messages": [{
                 "user": "John",
