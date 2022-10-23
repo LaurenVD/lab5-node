@@ -69,9 +69,11 @@ const update = (req, res) => {
 }
 
 const remove = (req, res) => {
+    // get id from url
+    const id = req.params.id;
     res.json({
         "status": "success",
-        "message": "DELETING message with id 1",
+        "message": "DELETING message with id " + id,
         "data": {
             "messages": [{
                 "message": "Message deleted"
