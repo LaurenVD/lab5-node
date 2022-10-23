@@ -1,6 +1,3 @@
-//require model
-const Message = require('./../../../models/message');
-
 const getAll = (req, res) => {
     // get user from url
     if (req.query.user) {
