@@ -2,21 +2,32 @@
 const Message = require('./../../../models/message');
 
 const getAll = (req, res) => {
-    res.json({
-        "status": "success",
-        "message": "GETTING messages",
-        "data": {
-            "messages": [{
+    // get user from url
+    if (req.query.user) {
+        res.json({
+            "status": "success",
+            "message": `GETTING messages for  username ${req.query.user}`,
+            "data": {
+                "user": req.query.user,
+                "message": "It's just me"
+            }
+        });
+    } else {
+        res.json({
+            "status": "success",
+            "message": "GETTING messages",
+            "data": {
+                "messages": [{
                 "user": "John",
                 "message": "Hello"
             },
             {
                 "user": "Jane",
                 "message": "Hi"
-            }
-            ]
+            }]
         }
-    })
+    });
+    }
 }
 
 const getId = (req, res) => {
