@@ -37,18 +37,20 @@ const getId = (req, res) => {
 };
 
 const create = (req, res) => {
-    res.json({
-        "status": "success",
-        "status": "POSTING a new message for user Pikachu",
-        "data": {
-            "messages": [{
-                "user": "Pikachu",
-                "message": "Hello"
-            }
+    const result = {
+        status: "success",
+        message: "POSTING a new message for user Lauren",
+        data: {
+            messages: [
+                {
+                    "user" : "Lauren",
+                    "message" : "It's just me"
+                }
             ]
         }
-    })
-}
+    };
+    res.json(result);
+};
 
 const update = (req, res) => {
     res.json({
